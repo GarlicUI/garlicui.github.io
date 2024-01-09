@@ -1,28 +1,41 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://astronaut.github.io',
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'GarlicOS',
+			components: {
+				// Override the default `SocialIcons` component.
+				CallToAction: './src/components/_CallToAction.astro',
+			  },
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/GarlicUI',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Docs',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
+						{label: 'Introduction', link: '/guides/introduction/'},
+						{label: 'Features', link: '/guides/features/'},
+						{
+							label: 'Installation',
+							autogenerate: { directory: 'guides/installation' },
+							collapsed: true,
+						},
+						{label: 'FAQ', link: '/guides/faq/'},
+						{label: 'Emulators', link: '/guides/emulators/'},
+						{label: 'Ports Collection', link: '/guides/ports-collection/'},
+						{label: 'Multiplayer Netplay', link: '/guides/multiplayer-netplay/'},
+						{label: 'Apps', link: '/guides/apps/'},
+						{label: 'Guides', link: '/guides/guides/'},
 					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+				}
 			],
+			customCss: ['./src/tailwind.css'],
 		}),
+		tailwind({ applyBaseStyles: false }),
 	],
 });
