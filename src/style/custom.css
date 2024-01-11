@@ -1,0 +1,10 @@
+.action {
+    gap: 0.5em;
+    align-items: center;
+    border-radius: .4rem;
+    padding: 0.5rem 1.125rem;
+    color: var(--sl-color-white);
+    line-height: 1.1875;
+    text-decoration: none;
+    font-size: var(--sl-text-sm);
+}

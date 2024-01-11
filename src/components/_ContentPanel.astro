@@ -1,0 +1,33 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+---
+
+<div class="content-panel">
+	<div class="sl-container"><slot /></div>
+</div>
+
+<style>
+	.content-panel {
+		padding: 1.5rem var(--sl-content-pad-x);
+        animation: 60s linear infinite alternate b;
+        background: linear-gradient(45deg,#4a1279,#7147c2,#9160fd,#d939c6,#ab50cb,#430089);
+            background-size: auto;
+        background-size: 600% 100%;
+	}
+	.content-panel + .content-panel {
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.sl-container {
+		max-width: var(--sl-content-width);
+	}
+
+	.sl-container > :global(* + *) {
+		margin-top: 1.5rem;
+	}
+
+	@media (min-width: 72rem) {
+		.sl-container {
+			margin-inline: var(--sl-content-margin-inline, auto);
+		}
+	}
+</style>

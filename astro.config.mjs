@@ -9,7 +9,8 @@ export default defineConfig({
 			title: 'GarlicOS',
 			components: {
 				// Override the default `SocialIcons` component.
-				CallToAction: './src/components/_CallToAction.astro',
+				Hero: './src/components/_Hero.astro',
+				Header: './src/components/_Header.astro',
 			  },
 			social: {
 				github: 'https://github.com/GarlicUI',
